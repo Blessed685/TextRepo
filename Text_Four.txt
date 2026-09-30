@@ -1,0 +1,27 @@
+--------------------------------------------
+>> TodoViewModel.kt <<
+--------------------------------------------
+
+package com.example.todo
+
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.lifecycle.ViewModel
+
+class TodoViewModel : ViewModel() {
+
+    var todoList by mutableStateOf(listOf<Todo>())
+
+    fun addTodo(todo: Todo) {
+        todoList = todoList + todo
+    }
+
+    fun deleteTodo(todo: Todo) {
+        todoList = todoList - todo
+    }
+
+    fun editTodo(oldTodo: Todo, newTodo: Todo) {
+        todoList = todoList - oldTodo + newTodo
+    }
+}
